@@ -1,0 +1,71 @@
+span.title{
+  font-size: 17px;
+  color:#555;
+}
+
+.attributes_table table td{
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+}
+
+.status{
+  font-size: 9px;
+  line-height: 9px;
+}
+
+.admin_words .paginated_collection_contents{
+  padding-top: 20px !important;
+}
+
+.admin_words.index{
+  td.thai_word, td.english_word{
+    width: 300px;
+  }
+  div.thai_word, div.english_word{
+    background: #f9f4ef;
+    height: 200px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-box-shadow: rgba(0,0,0,0.61) 0px 1px 4px;
+    -moz-box-shadow: rgba(0,0,0,0.61) 0px 1px 3px;
+    h2{
+      font-family: dtac;
+      font-weight: bold;
+      border-bottom: 1px solid #a7a59e;
+      padding: 10px 20px;
+      font-size: 40px;
+      line-height:40px;
+      margin: 0px;
+      a{
+        text-decoration: none;
+        color: #413f40;
+        &:hover{
+          color: #B1ADAF;
+          text-decoration: underline;
+        }
+      }
+    }
+    div.definition{
+      font-family: dtac;
+      margin: 15px 20px 10px 20px;
+      font-size: 15px;
+      .label{
+        color: #8f8b8d;
+      }
+      .content{
+        color: #3f3d3e;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        li{
+          padding: 4px 0;
+        }
+      }
+    }
+  }
+}
+
+/*#title_bar, .sidebar_section h3, .section h3, .panel h3 {
+  background: url("/assets/wallpaper.png");
+}*/

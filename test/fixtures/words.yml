@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: 
+  word: MyString
+  meaning: MyText
+  examples: MyText
+  reverse_examples: MyText
+  is_done: false
+  is_important: false
+
+two:
+  type: 
+  word: MyString
+  meaning: MyText
+  examples: MyText
+  reverse_examples: MyText
+  is_done: false
+  is_important: false

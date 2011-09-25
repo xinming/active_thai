@@ -1,0 +1,22 @@
+           admin_dashboard            /admin(.:format)                   {:action=>"index", :controller=>"admin/dashboard"}
+            admin_comments GET        /admin/comments(.:format)          {:action=>"index", :controller=>"admin/comments"}
+                           POST       /admin/comments(.:format)          {:action=>"create", :controller=>"admin/comments"}
+         new_admin_comment GET        /admin/comments/new(.:format)      {:action=>"new", :controller=>"admin/comments"}
+        edit_admin_comment GET        /admin/comments/:id/edit(.:format) {:action=>"edit", :controller=>"admin/comments"}
+             admin_comment GET        /admin/comments/:id(.:format)      {:action=>"show", :controller=>"admin/comments"}
+                           PUT        /admin/comments/:id(.:format)      {:action=>"update", :controller=>"admin/comments"}
+                           DELETE     /admin/comments/:id(.:format)      {:action=>"destroy", :controller=>"admin/comments"}
+               admin_words GET        /admin/words(.:format)             {:action=>"index", :controller=>"admin/words"}
+                           POST       /admin/words(.:format)             {:action=>"create", :controller=>"admin/words"}
+            new_admin_word GET        /admin/words/new(.:format)         {:action=>"new", :controller=>"admin/words"}
+           edit_admin_word GET        /admin/words/:id/edit(.:format)    {:action=>"edit", :controller=>"admin/words"}
+                admin_word GET        /admin/words/:id(.:format)         {:action=>"show", :controller=>"admin/words"}
+                           PUT        /admin/words/:id(.:format)         {:action=>"update", :controller=>"admin/words"}
+                           DELETE     /admin/words/:id(.:format)         {:action=>"destroy", :controller=>"admin/words"}
+    new_admin_user_session GET        /admin/login(.:format)             {:action=>"new", :controller=>"active_admin/devise/sessions"}
+        admin_user_session POST       /admin/login(.:format)             {:action=>"create", :controller=>"active_admin/devise/sessions"}
+destroy_admin_user_session DELETE|GET /admin/logout(.:format)            {:action=>"destroy", :controller=>"active_admin/devise/sessions"}
+       admin_user_password POST       /admin/password(.:format)          {:action=>"create", :controller=>"active_admin/devise/passwords"}
+   new_admin_user_password GET        /admin/password/new(.:format)      {:action=>"new", :controller=>"active_admin/devise/passwords"}
+  edit_admin_user_password GET        /admin/password/edit(.:format)     {:action=>"edit", :controller=>"active_admin/devise/passwords"}
+                           PUT        /admin/password(.:format)          {:action=>"update", :controller=>"active_admin/devise/passwords"}
