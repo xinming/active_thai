@@ -17,6 +17,7 @@ ActiveAdmin.register Word do
   filter :word
   filter :meaning
   filter :examples
+  filter :is_done, :as => :check_boxes
   
   # index do
   #   column("Word"){|word|

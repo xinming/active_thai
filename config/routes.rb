@@ -1,8 +1,10 @@
 ThaiAdmin::Application.routes.draw do
+  resources :words
+  resources :english_words
+  resources :thai_words
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

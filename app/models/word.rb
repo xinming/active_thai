@@ -3,6 +3,7 @@ class Word < ActiveRecord::Base
   serialize :reverse_examples, Hash
   serialize :meaning, Array
   serialize :similar_words, Hash
+  validates_uniqueness_of :word
   
   require 'open-uri'
   before_create :assign_type
