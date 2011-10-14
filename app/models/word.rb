@@ -4,6 +4,7 @@ class Word < ActiveRecord::Base
   serialize :meaning, Array
   serialize :similar_words, Hash
   validates_uniqueness_of :word
+  paginates_per 30
   
   require 'open-uri'
   before_create :assign_type

@@ -18,7 +18,8 @@ gem 'hpricot'
 # end
 
 gem 'jquery-rails'
-
+gem 'kaminari'
+gem 'has_scope'
 # Use unicorn as the web server
 # gem 'unicorn'
 
