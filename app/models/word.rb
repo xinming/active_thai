@@ -18,6 +18,13 @@ class Word < ActiveRecord::Base
   scope :to_be_completed, where(:is_done => false)
 
   
+  def get_freq
+    self.frequency = google_count(self.word)
+    logger.error(self.frequency)
+    self.save
+    self
+  end
+  
   protected
   def assign_type
     if self.word.match(/[a-zA-Z]+/)
@@ -40,13 +47,7 @@ class Word < ActiveRecord::Base
     self.similar_words = Hash.new
     self
   end
-  
-  def get_freq
-    self.frequency = google_count(self.word)
-    logger.error(self.frequency)
-    self.save
-    self
-  end
+
   
 
 
