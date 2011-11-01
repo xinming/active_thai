@@ -94,6 +94,7 @@ ActiveAdmin.register Word do
         end
         row("Done"){ word.is_done ? status_tag("yes", :class=> "green") : status_tag("no", :class=> "red")}
         row("Important"){ word.is_important ? status_tag("yes", :class=> "green") : status_tag("no", :class=> "red")}
+        row :frequency
       end
     end
   end
