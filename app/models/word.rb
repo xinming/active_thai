@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Word < ActiveRecord::Base
   serialize :examples, Hash
   serialize :reverse_examples, Hash
@@ -14,6 +16,7 @@ class Word < ActiveRecord::Base
   scope :english, where(:type => "EnglishWord")
   scope :completed, where(:is_done => true)
   scope :to_be_completed, where(:is_done => false)
+
   
   protected
   def assign_type
@@ -26,7 +29,7 @@ class Word < ActiveRecord::Base
   
   
   def assign_details
-    Word.find(self.id).reset_content.fetch
+    Word.find(self.id).reset_content.fetch.get_freq
   end
   
   def reset_content
@@ -37,4 +40,15 @@ class Word < ActiveRecord::Base
     self.similar_words = Hash.new
     self
   end
+  
+  def get_freq
+    self.frequency = google_count(self.word)
+    logger.error(self.frequency)
+    self.save
+    self
+  end
+  
+
+
+
 end

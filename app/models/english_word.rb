@@ -12,5 +12,6 @@ class EnglishWord < Word
       self.reverse_examples[r_word] = r_meaning
     end
     self.save
+    self
   end
 end

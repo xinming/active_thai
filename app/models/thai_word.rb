@@ -29,5 +29,6 @@ class ThaiWord < Word
       self.similar_words[s_word] = s_meaning
     end
     self.save
+    self
   end
 end
