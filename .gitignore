@@ -1,4 +1,6 @@
 .bundle
+*.lock
+*.log
 #db/*.sqlite3
 log/*.log
 tmp/
