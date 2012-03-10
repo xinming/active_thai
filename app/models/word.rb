@@ -14,7 +14,7 @@ class Word < ActiveRecord::Base
   
   scope :thai, where(:type => "ThaiWord")
   scope :english, where(:type => "EnglishWord")
-  scope :completed, where(:is_done => true).order("updated_at DESC")
+  scope :completed, where(:is_done => true).order("updated_at ASC")
   scope :to_be_completed, where(:is_done => false)
   scope :by_frequency, order("frequency DESC").where(:is_done => false)
   
