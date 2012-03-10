@@ -1,36 +1,4 @@
 
----
-admin_users:
-  columns:
-  - id
-  - email
-  - encrypted_password
-  - reset_password_token
-  - reset_password_sent_at
-  - remember_created_at
-  - sign_in_count
-  - current_sign_in_at
-  - last_sign_in_at
-  - current_sign_in_ip
-  - last_sign_in_ip
-  - created_at
-  - updated_at
-  records: 
-  - - 1
-    - admin@example.com
-    - $2a$10$0VAofZ.aC8pYhQn/.q4cBeRxcgbLEj3AxVDrMVPNDSntGtL/ZPd66
-    - !!null 
-    - !!null 
-    - '2012-01-28 05:59:39.654906'
-    - 44
-    - '2012-02-03 15:41:55.107841'
-    - '2012-01-28 06:03:01.579831'
-    - 180.183.112.153
-    - 180.183.113.86
-    - '2011-10-09 08:12:09.575918'
-    - '2012-02-03 15:41:55.108989'
-
----
 words:
   columns:
   - id
@@ -9447,7 +9415,7 @@ words:
     - ! '--- {}
 
 '
-    - !!null 
+    - a-nu&#x0301;-ma&#x0301;t 
   - - 85
     - ThaiWord
     - ประชาราษฎร์
@@ -11529,7 +11497,7 @@ words:
     - ! '--- {}
 
 '
-    - !!null 
+    - a-nu&#x0301;-ma&#x0301;t
   - - 100
     - EnglishWord
     - continent
@@ -12230,7 +12198,7 @@ words:
     - ! '--- {}
 
 '
-    - !!null 
+    - a-nu&#x0301;-ma&#x0301;t
   - - 107
     - ThaiWord
     - ทัก
@@ -44663,7 +44631,7 @@ words:
     - ! '--- {}
 
 '
-    - !!null 
+    - a-nu&#x0301;-ma&#x0301;t 
   - - 357
     - ThaiWord
     - ท้าทาย
