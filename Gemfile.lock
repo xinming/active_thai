@@ -92,6 +92,7 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     orm_adapter (0.0.6)
+    pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -161,6 +162,7 @@ DEPENDENCIES
   jquery-rails
   json
   kaminari
+  pg
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   sqlite3
