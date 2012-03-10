@@ -16,7 +16,7 @@ class Word < ActiveRecord::Base
   scope :english, where(:type => "EnglishWord")
   scope :completed, where(:is_done => true)
   scope :to_be_completed, where(:is_done => false)
-
+  scope :by_frequency, order("frequency DESC").where(:is_done => false)
   
   def get_freq
     self.frequency = google_count(self.word)
