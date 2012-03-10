@@ -24,7 +24,7 @@ class ThaiWord < Word
     (doc/".soundalikesContainer/.stripeMe").each do |s_div|
       s_word = (s_div/"a.t2e").inner_html.strip
       s_meaning = []
-      (s_div/"//.stripeMeInnerTable//li").each do |m|
+      (s_div/"//.floatedMeanings/ul/li").each do |m|
         s_meaning += m.inner_html.clean_up.split_up
       end
       self.similar_words[s_word] = s_meaning
