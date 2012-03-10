@@ -3,6 +3,6 @@
 *.log
 #db/*.sqlite3
 log/*.log
-tmp/
+tmp/*
 .sass-cache/
-Gemfile.lock
+#Gemfile.lock
