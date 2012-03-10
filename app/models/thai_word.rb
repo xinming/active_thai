@@ -9,8 +9,9 @@ class ThaiWord < Word
     self.pronounciation = (doc/"#dictionaryTransliteration").inner_html.clean_up
     
     (doc/".examplesContainer/.stripeMe").each do |e_div|
+      # raise e_div.inspect
       e_word = (e_div/"a.t2e/").to_html.clean_up
-      e_meaning = (e_div/"table//li").inner_html.clean_up.split_up
+      e_meaning = (e_div/".floatedMeanings/ul/li").inner_html.clean_up.split_up
       self.examples[e_word] = e_meaning
     end
 
