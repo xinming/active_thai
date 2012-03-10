@@ -1,5 +1,5 @@
 ActiveAdmin.register Word do
-  # scope :all, :default => true
+  config.sort_order = 'updated_at_desc'
   scope :to_be_completed, :default => true
   scope :completed
   scope :thai
