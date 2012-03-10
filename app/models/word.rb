@@ -24,6 +24,10 @@ class Word < ActiveRecord::Base
     self.save
     self
   end
+
+  def assign_details
+    Word.find(self.id).reset_content.fetch.get_freq
+  end
   
   protected
   def assign_type
@@ -35,9 +39,7 @@ class Word < ActiveRecord::Base
   end
   
   
-  def assign_details
-    Word.find(self.id).reset_content.fetch.get_freq
-  end
+
   
   def reset_content
     self.word.strip!
