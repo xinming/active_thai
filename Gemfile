@@ -17,6 +17,7 @@ gem 'hpricot'
   gem 'uglifier'
 # end
 
+gem 'yaml_db'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'has_scope'
