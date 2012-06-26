@@ -17,6 +17,7 @@ class Word < ActiveRecord::Base
   scope :completed, where(:is_done => true).order("updated_at ASC")
   scope :to_be_completed, where(:is_done => false)
   scope :by_frequency, order("frequency DESC").where(:is_done => false)
+  scope :by_random, order("RANDOM()").where(:is_done => false)
   
   def get_freq
     self.frequency = google_count(self.word)

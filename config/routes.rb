@@ -1,7 +1,12 @@
 ThaiAdmin::Application.routes.draw do
   resources :words
   resources :english_words
-  resources :thai_words
+  resources :thai_words do 
+    member do 
+      get :audio
+    end
+  end
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -1,4 +1,9 @@
+# encoding: UTF-8
 ActiveAdmin.register Word do
+  controller do
+    # helper :application
+
+  end
   config.sort_order = 'updated_at_desc'
   scope :to_be_completed, :default => true 
   scope :completed
@@ -76,29 +81,63 @@ ActiveAdmin.register Word do
   end
   
   show :title => "Word Details" do
+    # require 'iconv'
+    #   def tts(text, language = "th")
+    #     # url ="http://translate.google.com/translate_tts?tl=#{language}&q=#{CGI.escape(text)}"
+
+    #     # uri = URI.parse(url)
+    #     # # raise uri.inspect
+    #     # response = Net::HTTP.get_response(uri)
+    #     # # raise response.body.encoding.inspect
+    #     # data = ActiveSupport::Base64.encode64(response.body).gsub("\n", "")
+    #     # raw "<audio controls=\"controls\" src=\"data:audio/mpeg;base64, #{data}\"></audio>"
+    #     url = audio_thai_word_path(word)
+    #     raw "<audio controls=\"controls\" src=\"#{url}\"></audio>"
+    #   end
     panel "Details" do
-      attributes_table_for(word) do 
-        row("word"){ span word.word, :class=>"title"}
+      attributes_table_for(word) do
+        row("word"){
+          span(word.word, :class=>"title")
+        }
+
+        row("listen"){
+          url = audio_thai_word_path(word)
+          raw "<audio controls=\"controls\" src=\"#{url}\"></audio>"
+          # tts(, "th")
+        }
         row("meaning"){
           raw word.meaning.join(", ")
         }
         row("pronounciation"){ raw word.pronounciation}
+
         row("examples") do
-          raw word.examples.map{|k, v| "<div><b>#{k}</b>: #{v.join(", ")}</div>"}
+          raw word.examples.map{|k, v| "<div><b>#{k}</b>: #{v.join(", ")}</div>"}.join("")
         end
-        row("reverse_examples") do
-          raw word.reverse_examples.map{|k, v| "<div><b>#{k}</b>: #{v.join(", ")}</div>"}
+
+        unless word.reverse_examples.blank?
+          row("reverse_examples") do
+            raw word.reverse_examples.map{|k, v| "<div><b>#{k}</b>: #{v.map{|x|x.gsub(" ", "")}.join(", ")}</div>"}.join("")
+          end
         end
-        row("similar_words") do
-          raw word.similar_words.map{|k, v| "<div><b>#{k}</b>: #{v.join(", ")}</div>"}
+
+        unless word.similar_words.blank?
+          row("similar_words") do
+            raw word.similar_words.map{|k, v| "<div><b>#{k}</b>: #{v.join(", ")}</div>"}.join("")
+          end
         end
+
+        row("frequency"){ number_to_human word.frequency}
         row("Done"){ word.is_done ? status_tag("yes", :class=> "green") : status_tag("no", :class=> "red")}
         row("Important"){ word.is_important ? status_tag("yes", :class=> "green") : status_tag("no", :class=> "red")}
-        row :frequency
       end
     end
   end
   
+
+  action_item :only => :show do
+    link_to raw("&#9827; Random"), random_admin_word_path(word)
+  end
+
   action_item :only => :show do
     link_to "New Word", new_admin_word_path
   end
@@ -107,12 +146,18 @@ ActiveAdmin.register Word do
     link_to "Complete", complete_admin_word_path(word)
   end
   
+
   
   member_action :complete do
     @word = Word.find(params[:id])
     @word.is_done = true
     @word.save
     redirect_to admin_words_path
+  end
+
+  member_action :random do
+    word = Word.by_random.limit(1).first
+    redirect_to admin_word_path(word)
   end
 
 end
